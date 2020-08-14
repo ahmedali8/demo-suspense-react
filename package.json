@@ -8,7 +8,8 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "0.0.0-experimental-94c0244ba",
     "react-dom": "0.0.0-experimental-94c0244ba",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-top-loading-bar": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

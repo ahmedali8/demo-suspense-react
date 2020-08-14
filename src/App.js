@@ -1,15 +1,22 @@
-import React, { Suspense } from 'react';
-import createResource from './resource';
-import PostList from './PostList';
-
-const resource = createResource();
+import React, { Suspense, SuspenseList } from 'react';
+import PendingTodos from './components/PendingTodos';
+import CompletedTodos from './components/CompletedTodos';
+import './App.css';
 
 function App() {
 	return (
-		<div >
-			<h1>Blog Posts</h1>
-			<Suspense fallback={<h1>Loading...</h1>}>
-				<PostList resource={resource} />
+		<div className="app">
+			<h1>Here are your todos for today</h1>
+			<p>Click on any todo to view more details about it</p>
+
+			<h3>Pending Todos</h3>
+			<Suspense fallback={<h1>Loading Pending Todos... </h1>} >
+				<PendingTodos />
+				</Suspense>
+
+			<h3>Completed Todos</h3>
+			<Suspense fallback={<h1>Loading Completed Todos... </h1>} >
+				<CompletedTodos />
 			</Suspense>
 		</div>
 	);
