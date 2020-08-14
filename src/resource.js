@@ -5,10 +5,10 @@ async function fetchPosts() {
     return data;
 }
 
-export default function createResource() {
+export default function wrapPromise(promise) {
     let status = "loading";
     let result;
-    let suspender = fetchPosts().then(
+    let suspender = promise().then(
         data => {
             status = "success";
             result = data;
@@ -31,5 +31,12 @@ export default function createResource() {
                 return result;
             }
         }
+    }
+}
+
+export default function createResource() {
+    return {
+        posts: wrapPromise(fetchPosts());
+        // Add other posts here...
     }
 }
